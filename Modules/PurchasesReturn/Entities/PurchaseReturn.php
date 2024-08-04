@@ -29,7 +29,7 @@ class PurchaseReturn extends Model
     }
 
     public function scopeCompleted($query) {
-        return $query->where('status', 'Completed');
+        return $query->where('status', 'Selesai');
     }
 
     public function getShippingAmountAttribute($value) {

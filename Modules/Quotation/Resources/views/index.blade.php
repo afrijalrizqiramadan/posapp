@@ -9,7 +9,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Quotations</li>
+        <li class="breadcrumb-item active">Dokumen Penawaran</li>
     </ol>
 @endsection
 
@@ -19,8 +19,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('quotations.create') }}" class="btn btn-primary">
-                            Add Quotation <i class="bi bi-plus"></i>
+                        <a href="{{ route('quotations.create') }}" class="btn btn-success">
+                            Tambah Penawaran <i class="bi bi-plus"></i>
                         </a>
 
                         <hr>

@@ -79,7 +79,7 @@ class SalesReturnController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Completed') {
+                if ($request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $cart_item->qty
@@ -160,7 +160,7 @@ class SalesReturnController extends Controller
             }
 
             foreach ($sale_return->saleReturnDetails as $sale_return_detail) {
-                if ($sale_return->status == 'Completed') {
+                if ($sale_return->status == 'Selesai') {
                     $product = Product::findOrFail($sale_return_detail->product_id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $sale_return_detail->quantity
@@ -203,7 +203,7 @@ class SalesReturnController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Completed') {
+                if ($request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $cart_item->qty
@@ -214,7 +214,7 @@ class SalesReturnController extends Controller
             Cart::instance('sale_return')->destroy();
         });
 
-        toast('Sale Return Updated!', 'info');
+        toast('Sale Return Diperbarui!', 'info');
 
         return redirect()->route('sale-returns.index');
     }

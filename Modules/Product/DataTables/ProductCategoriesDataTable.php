@@ -37,7 +37,7 @@ class ProductCategoriesDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -48,15 +48,19 @@ class ProductCategoriesDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('category_code')
+            ->title('Kategori Kode')
                 ->addClass('text-center'),
 
             Column::make('category_name')
+            ->Title('Nama Kategori')
                 ->addClass('text-center'),
 
             Column::make('products_count')
+            ->Title('Jumlah Produk')
                 ->addClass('text-center'),
 
             Column::computed('action')
+            ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->addClass('text-center'),

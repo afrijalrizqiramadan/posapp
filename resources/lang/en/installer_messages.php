@@ -8,8 +8,8 @@ return [
      *
      */
     'title' => 'Admin POS',
-    'next' => 'Next Step',
-    'back' => 'Previous',
+    'next' => 'Selanjutnya',
+    'back' => 'Sebelumnya',
     'finish' => 'Install',
     'forms' => [
         'errorTitle' => 'The Following errors occurred:',

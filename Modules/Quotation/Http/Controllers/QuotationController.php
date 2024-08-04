@@ -156,7 +156,7 @@ class QuotationController extends Controller
             Cart::instance('quotation')->destroy();
         });
 
-        toast('Quotation Updated!', 'info');
+        toast('Quotation Diperbarui!', 'info');
 
         return redirect()->route('quotations.index');
     }

@@ -43,17 +43,17 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="payment_method">Payment Method <span class="text-danger">*</span></label>
+                                <label for="payment_method">Metode Pembayaran <span class="text-danger">*</span></label>
                                 <select class="form-control" name="payment_method" id="payment_method" required>
-                                    <option value="Cash">Cash</option>
-                                    <option value="Credit Card">Credit Card</option>
-                                    <option value="Bank Transfer">Bank Transfer</option>
-                                    <option value="Cheque">Cheque</option>
-                                    <option value="Other">Other</option>
+                                    <option value="Tunai">Tunai</option>
+                                    <option value="Kartu Kredit">Kartu Kredit</option>
+                                    <option value="Transfer Bank">Transfer Bank</option>
+                                    <option value="Cek">Cek</option>
+                                    <option value="Other">Lainnya</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="note">Note (If Needed)</label>
+                                <label for="note">Catatan (Jika Dibutuhkan)</label>
                                 <textarea name="note" id="note" rows="5" class="form-control"></textarea>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="table-responsive">
                                 <table class="table table-striped">
                                     <tr>
-                                        <th>Total Products</th>
+                                        <th>Total Produk</th>
                                         <td>
                                                 <span class="badge badge-success">
                                                     {{ Cart::instance($cart_instance)->count() }}
@@ -69,20 +69,20 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <th>Order Tax ({{ $global_tax }}%)</th>
+                                        <th>Pajak Pesanan  ({{ $global_tax }}%)</th>
                                         <td>(+) {{ format_currency(Cart::instance($cart_instance)->tax()) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Discount ({{ $global_discount }}%)</th>
+                                        <th>Diskon({{ $global_discount }}%)</th>
                                         <td>(-) {{ format_currency(Cart::instance($cart_instance)->discount()) }}</td>
                                     </tr>
                                     <tr>
-                                        <th>Shipping</th>
+                                        <th>Pengiriman</th>
                                         <input type="hidden" value="{{ $shipping }}" name="shipping_amount">
                                         <td>(+) {{ format_currency($shipping) }}</td>
                                     </tr>
                                     <tr class="text-primary">
-                                        <th>Grand Total</th>
+                                        <th>Total Akhir</th>
                                         @php
                                             $total_with_shipping = Cart::instance($cart_instance)->total() + (float) $shipping
                                         @endphp
@@ -98,7 +98,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </form>
         </div>

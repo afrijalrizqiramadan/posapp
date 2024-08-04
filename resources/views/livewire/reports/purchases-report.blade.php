@@ -7,7 +7,7 @@
                         <div class="form-row">
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label>Start Date <span class="text-danger">*</span></label>
+                                    <label>Start Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="start_date" type="date" class="form-control" name="start_date">
                                     @error('start_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group">
-                                    <label>End Date <span class="text-danger">*</span></label>
+                                    <label>End Tanggal <span class="text-danger">*</span></label>
                                     <input wire:model="end_date" type="date" class="form-control" name="end_date">
                                     @error('end_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -41,9 +41,9 @@
                                     <label>Status</label>
                                     <select wire:model="purchase_status" class="form-control" name="purchase_status">
                                         <option value="">Select Status</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="Ordered">Ordered</option>
-                                        <option value="Completed">Completed</option>
+                                        <option value="Ditunda">Ditunda</option>
+                                        <option value="Telah Dipesan">Telah Dipesan</option>
+                                        <option value="Selesai">Selesai</option>
                                     </select>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-0">
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-success">
                                 <span wire:target="generateReport" wire:loading class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 <i wire:target="generateReport" wire:loading.remove class="bi bi-shuffle"></i>
                                 Filter Report
@@ -84,8 +84,8 @@
                         </div>
                         <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Reference</th>
+                            <th>Tanggal</th>
+                            <th>Referensi</th>
                             <th>Supplier</th>
                             <th>Status</th>
                             <th>Total</th>
@@ -101,11 +101,11 @@
                                 <td>{{ $purchase->reference }}</td>
                                 <td>{{ $purchase->supplier_name }}</td>
                                 <td>
-                                    @if ($purchase->status == 'Pending')
+                                    @if ($purchase->status == 'Ditunda')
                                         <span class="badge badge-info">
                                     {{ $purchase->status }}
                                 </span>
-                                    @elseif ($purchase->status == 'Ordered')
+                                    @elseif ($purchase->status == 'Telah Dipesan')
                                         <span class="badge badge-primary">
                                     {{ $purchase->status }}
                                 </span>
@@ -138,7 +138,7 @@
                         @empty
                             <tr>
                                 <td colspan="8">
-                                    <span class="text-danger">No Purchases Data Available!</span>
+                                    <span class="text-danger">Data Pembelian Tidak Tersedia!</span>
                                 </td>
                             </tr>
                         @endforelse

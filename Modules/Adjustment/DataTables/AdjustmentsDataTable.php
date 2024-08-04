@@ -37,7 +37,7 @@ class AdjustmentsDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -48,21 +48,25 @@ class AdjustmentsDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('date')
+            ->title('Tanggal')
                 ->className('text-center align-middle'),
 
             Column::make('reference')
+                ->title('Referensi')
                 ->className('text-center align-middle'),
 
             Column::make('adjusted_products_count')
-                ->title('Products')
+                ->title('Produk')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+            ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+            ->title('Dibuat')
                 ->visible(false)
         ];
     }

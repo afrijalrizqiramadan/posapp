@@ -37,7 +37,7 @@ class CurrencyDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -48,26 +48,34 @@ class CurrencyDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('currency_name')
+                ->title('Nama Mata Uang')
                 ->className('text-center align-middle'),
 
             Column::make('code')
+                ->title('Kode Mata Uang')
                 ->className('text-center align-middle'),
 
             Column::make('symbol')
+            ->title('Simbol Mata Uang')
                 ->className('text-center align-middle'),
 
             Column::make('thousand_separator')
+            ->title('Pembagi Ribuan')
+
                 ->className('text-center align-middle'),
 
             Column::make('decimal_separator')
+            ->title('Pembagi Desimal')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+            ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+            ->title('Dibuat')
                 ->visible(false)
         ];
     }

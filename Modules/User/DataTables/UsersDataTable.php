@@ -61,7 +61,7 @@ class UsersDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -72,26 +72,34 @@ class UsersDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::computed('image')
+            ->title('Gambar')
+
                 ->className('text-center align-middle'),
 
             Column::make('name')
+                ->title('Nama')
                 ->className('text-center align-middle'),
 
             Column::make('email')
+                ->title('Email')
                 ->className('text-center align-middle'),
 
             Column::computed('role')
+            ->title('Role')
                 ->className('text-center align-middle'),
 
             Column::computed('status')
+            ->title('Status')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+            ->title('Action')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+            ->title('Dibuat')
                 ->visible(false)
         ];
     }

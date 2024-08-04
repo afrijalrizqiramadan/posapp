@@ -15,7 +15,7 @@
                 <table class="table table-bordered mb-0">
                     <thead>
                     <tr class="align-middle">
-                        <th class="align-middle">Product Name</th>
+                        <th class="align-middle">Nama Produk</th>
                         <th class="align-middle">Code</th>
                         <th class="align-middle">
                             Quantity <i class="bi bi-question-circle-fill text-info" data-toggle="tooltip" data-placement="top" title="Max Quantity: 100"></i>
@@ -40,7 +40,7 @@
                 </table>
             </div>
             <div class="mt-3">
-                <button wire:click="generateBarcodes({{ $product }}, {{ $quantity }})" type="button" class="btn btn-primary">
+                <button wire:click="generateBarcodes({{ $product }}, {{ $quantity }})" type="button" class="btn btn-success">
                     <i class="bi bi-upc-scan"></i> Generate Barcodes
                 </button>
             </div>
@@ -57,7 +57,7 @@
 
     @if(!empty($barcodes))
         <div class="text-right mb-3">
-            <button wire:click="getPdf" wire:loading.attr="disabled" type="button" class="btn btn-primary">
+            <button wire:click="getPdf" wire:loading.attr="disabled" type="button" class="btn btn-success">
                 <span wire:loading wire:target="getPdf" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 <i wire:loading.remove wire:target="getPdf" class="bi bi-file-earmark-pdf"></i> Download PDF
             </button>

@@ -60,7 +60,7 @@ class CategoriesController extends Controller
             'category_name' => $request->category_name,
         ]);
 
-        toast('Product Category Updated!', 'info');
+        toast('Product Category Diperbarui!', 'info');
 
         return redirect()->route('product-categories.index');
     }

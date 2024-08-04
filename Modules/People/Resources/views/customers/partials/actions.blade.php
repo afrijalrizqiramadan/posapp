@@ -4,7 +4,7 @@
     </a>
 @endcan
 @can('show_customers')
-    <a href="{{ route('customers.show', $data->id) }}" class="btn btn-primary btn-sm">
+    <a href="{{ route('customers.show', $data->id) }}" class="btn btn-success btn-sm">
         <i class="bi bi-eye"></i>
     </a>
 @endcan

@@ -20,7 +20,7 @@
         @endcan
         @can('show_quotations')
             <a href="{{ route('quotations.show', $data->id) }}" class="dropdown-item">
-                <i class="bi bi-eye mr-2 text-info" style="line-height: 1;"></i> Details
+                <i class="bi bi-eye mr-2 text-info" style="line-height: 1;"></i> Detail
             </a>
         @endcan
         @can('delete_quotations')
@@ -29,7 +29,7 @@
                 if (confirm('Are you sure? It will delete the data permanently!')) {
                 document.getElementById('destroy{{ $data->id }}').submit()
                 }">
-                <i class="bi bi-trash mr-2 text-danger" style="line-height: 1;"></i> Delete
+                <i class="bi bi-trash mr-2 text-danger" style="line-height: 1;"></i> Hapus
                 <form id="destroy{{ $data->id }}" class="d-none" action="{{ route('quotations.destroy', $data->id) }}" method="POST">
                     @csrf
                     @method('delete')

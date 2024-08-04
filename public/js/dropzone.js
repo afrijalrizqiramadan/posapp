@@ -3748,7 +3748,7 @@ ExifRestore.initClass();
  *
  * Author: Diego Perini (diego.perini at gmail.com)
  * Summary: cross-browser wrapper for DOMContentLoaded
- * Updated: 20101020
+ * Diperbarui: 20101020
  * License: MIT
  * Version: 1.2
  *

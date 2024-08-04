@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Print Barcode')
+@section('title', 'Cetak Barcode')
 
 @push('page_css')
     @livewireStyles

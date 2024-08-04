@@ -45,7 +45,7 @@ class RolesDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -56,25 +56,31 @@ class RolesDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('id')
+
                 ->addClass('text-center')
                 ->addClass('align-middle'),
 
             Column::make('name')
+            ->title('Nama Role')
                 ->addClass('text-center')
                 ->addClass('align-middle'),
 
             Column::computed('permissions')
+            ->title('Izin')
                 ->addClass('text-center')
                 ->addClass('align-middle')
                 ->width('700px'),
 
             Column::computed('action')
+                ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->addClass('text-center')
                 ->addClass('align-middle'),
 
             Column::make('created_at')
+            ->title('Dibuat')
+
                 ->visible(false)
         ];
     }

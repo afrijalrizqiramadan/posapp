@@ -80,7 +80,7 @@ class ProductController extends Controller
             }
         }
 
-        toast('Product Updated!', 'info');
+        toast('Product Diperbarui!', 'info');
 
         return redirect()->route('products.index');
     }

@@ -128,7 +128,7 @@ class SaleReturnPaymentsController extends Controller
             ]);
         });
 
-        toast('Sale Return Payment Updated!', 'info');
+        toast('Sale Return Payment Diperbarui!', 'info');
 
         return redirect()->route('sale-returns.index');
     }

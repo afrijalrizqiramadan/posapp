@@ -58,7 +58,7 @@ class   UnitsController extends Controller
             'operation_value' => $request->operation_value,
         ]);
 
-        toast('Unit Updated!', 'info');
+        toast('Unit Diperbarui!', 'info');
 
         return redirect()->route('units.index');
     }

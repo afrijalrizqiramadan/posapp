@@ -57,7 +57,7 @@ class ProductDataTable extends DataTable
                         Button::make('excel')
                             ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                         Button::make('print')
-                            ->text('<i class="bi bi-printer-fill"></i> Print'),
+                            ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                         Button::make('reset')
                             ->text('<i class="bi bi-x-circle"></i> Reset'),
                         Button::make('reload')
@@ -69,31 +69,34 @@ class ProductDataTable extends DataTable
     {
         return [
             Column::computed('product_image')
-                ->title('Image')
+                ->title('Gambar')
                 ->className('text-center align-middle'),
 
             Column::make('category.category_name')
-                ->title('Category')
+                ->title('Kategori')
                 ->className('text-center align-middle'),
 
             Column::make('product_code')
-                ->title('Code')
+                ->title('Kode')
                 ->className('text-center align-middle'),
 
             Column::make('product_name')
-                ->title('Name')
+                ->title('Nama')
                 ->className('text-center align-middle'),
 
             Column::computed('product_cost')
-                ->title('Cost')
+                ->title('Harga Beli')
                 ->className('text-center align-middle'),
 
             Column::computed('product_price')
-                ->title('Price')
+                ->title('Harga Jual 1')
+                ->className('text-center align-middle'),
+                Column::computed('product_price2')
+                ->title('Harga Jual 2')
                 ->className('text-center align-middle'),
 
             Column::computed('product_quantity')
-                ->title('Quantity')
+                ->title('Kuantitas')
                 ->className('text-center align-middle'),
 
             Column::computed('action')

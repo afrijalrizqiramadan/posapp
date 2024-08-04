@@ -59,7 +59,7 @@
                             <input type="password" name="password_confirmation" class="form-control"
                                    placeholder="Confirm password">
                         </div>
-                        <button type="submit" class="btn btn-block btn-primary btn-block btn-flat">
+                        <button type="submit" class="btn btn-block btn-success btn-block btn-flat">
                             <i class="fa fa-btn fa-refresh"></i> Reset
                         </button>
                     </form>

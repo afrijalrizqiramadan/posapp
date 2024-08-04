@@ -88,7 +88,7 @@ class SuppliersController extends Controller
             'address'        => $request->address
         ]);
 
-        toast('Supplier Updated!', 'info');
+        toast('Supplier Diperbarui!', 'info');
 
         return redirect()->route('suppliers.index');
     }

@@ -46,7 +46,7 @@
 
                             <div class="row">
                                 <div class="col-12">
-                                    <button class="btn btn-block btn-primary" type="submit">
+                                    <button class="btn btn-block btn-success" type="submit">
                                         <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
                                     </button>
                                 </div>

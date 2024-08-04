@@ -77,7 +77,7 @@ class ExpenseController extends Controller
             'details' => $request->details
         ]);
 
-        toast('Expense Updated!', 'info');
+        toast('Expense Diperbarui!', 'info');
 
         return redirect()->route('expenses.index');
     }

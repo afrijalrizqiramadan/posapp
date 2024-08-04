@@ -78,7 +78,7 @@ class PurchaseController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Completed') {
+                if ($request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $cart_item->qty
@@ -158,7 +158,7 @@ class PurchaseController extends Controller
             }
 
             foreach ($purchase->purchaseDetails as $purchase_detail) {
-                if ($purchase->status == 'Completed') {
+                if ($purchase->status == 'Selesai') {
                     $product = Product::findOrFail($purchase_detail->product_id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $purchase_detail->quantity
@@ -201,7 +201,7 @@ class PurchaseController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Completed') {
+                if ($request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $cart_item->qty
@@ -212,7 +212,7 @@ class PurchaseController extends Controller
             Cart::instance('purchase')->destroy();
         });
 
-        toast('Purchase Updated!', 'info');
+        toast('Purchase Diperbarui!', 'info');
 
         return redirect()->route('purchases.index');
     }

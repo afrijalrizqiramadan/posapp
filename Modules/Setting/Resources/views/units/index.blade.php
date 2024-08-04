@@ -10,7 +10,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Units</li>
+        <li class="breadcrumb-item active">Unit</li>
     </ol>
 @endsection
 
@@ -20,7 +20,7 @@
             <div class="col-12">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
-                        <a href="{{ route('units.create') }}" class="btn btn-primary">
+                        <a href="{{ route('units.create') }}" class="btn btn-success">
                             Add Unit <i class="bi bi-plus"></i>
                         </a>
 
@@ -32,10 +32,10 @@
                                 <tr>
                                     <th class="align-middle">No.</th>
                                     <th class="align-middle">Name</th>
-                                    <th class="align-middle">Short Name</th>
+                                    <th class="align-middle">Singkatan</th>
                                     <th class="align-middle">Operator</th>
-                                    <th class="align-middle">Operation Value</th>
-                                    <th class="align-middle">Action</th>
+                                    <th class="align-middle">Nilai Operasi</th>
+                                    <th class="align-middle">Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -47,7 +47,7 @@
                                         <td class="align-middle">{{ $unit->operator }}</td>
                                         <td class="align-middle">{{ $unit->operation_value }}</td>
                                         <td class="align-middle">
-                                            <a href="{{ route('units.edit', $unit) }}" class="btn btn-primary btn-sm">
+                                            <a href="{{ route('units.edit', $unit) }}" class="btn btn-success btn-sm">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
                                             <button id="delete" class="btn btn-danger btn-sm delete-confirm" onclick="
@@ -86,7 +86,7 @@
                 {extend: 'excel',text: '<i class="bi bi-file-earmark-excel-fill"></i> Excel'},
                 {extend: 'csv',text: '<i class="bi bi-file-earmark-excel-fill"></i> CSV'},
                 {extend: 'print',
-                    text: '<i class="bi bi-printer-fill"></i> Print',
+                    text: '<i class="bi bi-printer-fill"></i> Cetak',
                     title: "Units",
                     exportOptions: {
                         columns: [ 0, 1, 2, 3, 4 ]

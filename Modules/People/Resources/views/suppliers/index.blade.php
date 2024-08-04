@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Suppliers')
+@section('title', 'Suplier')
 
 @section('third_party_stylesheets')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
@@ -19,8 +19,8 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('suppliers.create') }}" class="btn btn-primary">
-                            Add Supplier <i class="bi bi-plus"></i>
+                        <a href="{{ route('suppliers.create') }}" class="btn btn-success">
+                            Tambah Suplier <i class="bi bi-plus"></i>
                         </a>
 
                         <hr>

@@ -43,7 +43,7 @@ class QuotationsDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -54,27 +54,34 @@ class QuotationsDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('date')
+            ->title('Tanggal')
+
                 ->className('text-center align-middle'),
 
             Column::make('reference')
+            ->title('No. Referensi')
                 ->className('text-center align-middle'),
 
             Column::make('customer_name')
-                ->title('Customer')
+                ->title('Nama Customer')
                 ->className('text-center align-middle'),
 
             Column::computed('status')
+            ->title('Status')
                 ->className('text-center align-middle'),
 
             Column::computed('total_amount')
+            ->title('Total')
                 ->className('text-center align-middle'),
 
             Column::computed('action')
+            ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('text-center align-middle'),
 
             Column::make('created_at')
+            ->title('Dibuat')
                 ->visible(false)
         ];
     }

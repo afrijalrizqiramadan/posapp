@@ -24,7 +24,7 @@
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2023-05-11T18:29Z
+ * Tanggal: 2023-05-11T18:29Z
  */
 
 /*! Bootstrap integration for DataTables' Buttons

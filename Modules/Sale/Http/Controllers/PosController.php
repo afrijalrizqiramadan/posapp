@@ -51,7 +51,7 @@ class PosController extends Controller
                 'paid_amount' => $request->paid_amount * 100,
                 'total_amount' => $request->total_amount * 100,
                 'due_amount' => $due_amount * 100,
-                'status' => 'Completed',
+                'status' => 'Selesai',
                 'payment_status' => $payment_status,
                 'payment_method' => $request->payment_method,
                 'note' => $request->note,
@@ -93,7 +93,7 @@ class PosController extends Controller
             }
         });
 
-        toast('POS Sale Created!', 'success');
+        toast('Berhasil!', 'success');
 
         return redirect()->route('sales.index');
     }

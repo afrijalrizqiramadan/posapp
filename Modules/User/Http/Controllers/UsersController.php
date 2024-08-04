@@ -101,7 +101,7 @@ class UsersController extends Controller
             }
         }
 
-        toast("User Updated & Assigned '$request->role' Role!", 'info');
+        toast("User Diperbarui & Assigned '$request->role' Role!", 'info');
 
         return redirect()->route('users.index');
     }

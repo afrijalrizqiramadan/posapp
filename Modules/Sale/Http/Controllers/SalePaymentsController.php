@@ -129,7 +129,7 @@ class SalePaymentsController extends Controller
             ]);
         });
 
-        toast('Sale Payment Updated!', 'info');
+        toast('Sale Payment Diperbarui!', 'info');
 
         return redirect()->route('sales.index');
     }

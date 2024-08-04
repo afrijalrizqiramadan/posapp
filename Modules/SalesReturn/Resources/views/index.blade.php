@@ -9,7 +9,7 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Sale Returns</li>
+        <li class="breadcrumb-item active">Pengembalian Barang</li>
     </ol>
 @endsection
 
@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <a href="{{ route('sale-returns.create') }}" class="btn btn-primary">
+                        <a href="{{ route('sale-returns.create') }}" class="btn btn-success">
                             Add Sale Return <i class="bi bi-plus"></i>
                         </a>
 

@@ -34,7 +34,7 @@
                     <form id="login" method="post" action="{{ url('/login') }}">
                         @csrf
                         <h1>Login</h1>
-                        <p class="text-muted">Sign In to your account</p>
+                        <p class="text-muted">Masuk ke Akun Anda</p>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -63,7 +63,7 @@
                         </div>
                         <div class="row">
                             <div class="col-4">
-                                <button id="submit" class="btn btn-primary px-4 d-flex align-items-center"
+                                <button id="submit" class="btn btn-success px-4 d-flex align-items-center"
                                         type="submit">
                                     Login
                                     <div id="spinner" class="spinner-border text-info" role="status"

@@ -15,12 +15,12 @@
             <div class="col-md-6 col-lg-3">
                 <div class="card border-0">
                     <div class="card-body p-0 d-flex align-items-center shadow-sm">
-                        <div class="bg-gradient-primary p-4 mfe-3 rounded-left">
+                        <div class="bg-gradient-success p-4 mfe-3 rounded-left">
                             <i class="bi bi-bar-chart font-2xl"></i>
                         </div>
                         <div>
                             <div class="text-value text-primary">{{ format_currency($revenue) }}</div>
-                            <div class="text-muted text-uppercase font-weight-bold small">Revenue</div>
+                            <div class="text-muted text-uppercase font-weight-bold small">pendapatan</div>
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                         </div>
                         <div>
                             <div class="text-value text-warning">{{ format_currency($sale_returns) }}</div>
-                            <div class="text-muted text-uppercase font-weight-bold small">Sales Return</div>
+                            <div class="text-muted text-uppercase font-weight-bold small">Pengembalian Penjualan</div>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div>
                             <div class="text-value text-success">{{ format_currency($purchase_returns) }}</div>
-                            <div class="text-muted text-uppercase font-weight-bold small">Purchases Return</div>
+                            <div class="text-muted text-uppercase font-weight-bold small">Pengembalian Pembelian</div>
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div>
                             <div class="text-value text-info">{{ format_currency($profit) }}</div>
-                            <div class="text-muted text-uppercase font-weight-bold small">Profit</div>
+                            <div class="text-muted text-uppercase font-weight-bold small">Keuntungan</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
             <div class="col-lg-7">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-header">
-                        Sales & Purchases of Last 7 Days
+                        Pembelian dan Penjualan 7 Hari Terakhir
                     </div>
                     <div class="card-body">
                         <canvas id="salesPurchasesChart"></canvas>
@@ -88,7 +88,7 @@
             <div class="col-lg-5">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-header">
-                        Overview of {{ now()->format('F, Y') }}
+                        Rangkuman {{ now()->format('F, Y') }}
                     </div>
                     <div class="card-body d-flex justify-content-center">
                         <div class="chart-container" style="position: relative; height:auto; width:280px">
@@ -106,7 +106,7 @@
             <div class="col-lg-12">
                 <div class="card border-0 shadow-sm">
                     <div class="card-header">
-                        Monthly Cash Flow (Payment Sent & Received)
+                        Tunai Flow Bulanan Penjualan dan Pembelian
                     </div>
                     <div class="card-body">
                         <canvas id="paymentChart"></canvas>

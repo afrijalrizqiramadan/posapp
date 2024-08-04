@@ -79,7 +79,7 @@ class SaleController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Shipped' || $request->status == 'Completed') {
+                if ($request->status == 'Shipped' || $request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty
@@ -161,7 +161,7 @@ class SaleController extends Controller
             }
 
             foreach ($sale->saleDetails as $sale_detail) {
-                if ($sale->status == 'Shipped' || $sale->status == 'Completed') {
+                if ($sale->status == 'Shipped' || $sale->status == 'Selesai') {
                     $product = Product::findOrFail($sale_detail->product_id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $sale_detail->quantity
@@ -204,7 +204,7 @@ class SaleController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Shipped' || $request->status == 'Completed') {
+                if ($request->status == 'Shipped' || $request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty
@@ -215,7 +215,7 @@ class SaleController extends Controller
             Cart::instance('sale')->destroy();
         });
 
-        toast('Sale Updated!', 'info');
+        toast('Sale Diperbarui!', 'info');
 
         return redirect()->route('sales.index');
     }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Adjustment Details')
+@section('title', 'Detail Perubahan')
 
 @push('page_css')
     @livewireStyles
@@ -9,8 +9,8 @@
 @section('breadcrumb')
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('adjustments.index') }}">Adjustments</a></li>
-        <li class="breadcrumb-item active">Details</li>
+        <li class="breadcrumb-item"><a href="{{ route('adjustments.index') }}">Perubahan</li>/a></li>
+        <li class="breadcrumb-item active">Detail</li>
     </ol>
 @endsection
 
@@ -40,9 +40,9 @@
                                 </tr>
 
                                 <tr>
-                                    <th>Product Name</th>
+                                    <th>Nama Produk</th>
                                     <th>Code</th>
-                                    <th>Quantity</th>
+                                    <th>Kuantitas</th>
                                     <th>Type</th>
                                 </tr>
 

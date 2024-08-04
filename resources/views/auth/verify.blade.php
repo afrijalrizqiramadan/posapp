@@ -6,10 +6,10 @@
             <div class="col-md-8" style="margin-top: 2%">
                 <div class="card" style="width: 40rem;">
                     <div class="card-body">
-                        <h4 class="card-title">Verify Your Email Address</h4>
+                        <h4 class="card-title">Verify Your Email Alamat</h4>
                         @if (session('resent'))
                             <p class="alert alert-success" role="alert">A fresh verification link has been sent to
-                                your email address</p>
+                                your email Alamat</p>
                         @endif
                         <p class="card-text">Before proceeding, please check your email for a verification link.If you
                             did not receive the email,</p>

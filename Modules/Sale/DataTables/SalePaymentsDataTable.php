@@ -40,7 +40,7 @@ class SalePaymentsDataTable extends DataTable
                 Button::make('excel')
                     ->text('<i class="bi bi-file-earmark-excel-fill"></i> Excel'),
                 Button::make('print')
-                    ->text('<i class="bi bi-printer-fill"></i> Print'),
+                    ->text('<i class="bi bi-printer-fill"></i> Cetak'),
                 Button::make('reset')
                     ->text('<i class="bi bi-x-circle"></i> Reset'),
                 Button::make('reload')
@@ -51,23 +51,30 @@ class SalePaymentsDataTable extends DataTable
     protected function getColumns() {
         return [
             Column::make('date')
+            ->title('Tanggal')
+
                 ->className('align-middle text-center'),
 
             Column::make('reference')
+                ->title('No. Referensi')
                 ->className('align-middle text-center'),
 
             Column::computed('amount')
+            ->title('Jumlah')
                 ->className('align-middle text-center'),
 
             Column::make('payment_method')
+            ->title('Metode Pembayaran')
                 ->className('align-middle text-center'),
 
             Column::computed('action')
+            ->title('Aksi')
                 ->exportable(false)
                 ->printable(false)
                 ->className('align-middle text-center'),
 
             Column::make('created_at')
+            ->title('Dibuat')
                 ->visible(false),
         ];
     }

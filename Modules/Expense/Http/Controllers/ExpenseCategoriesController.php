@@ -57,7 +57,7 @@ class ExpenseCategoriesController extends Controller
             'category_description' => $request->category_description
         ]);
 
-        toast('Expense Category Updated!', 'info');
+        toast('Expense Category Diperbarui!', 'info');
 
         return redirect()->route('expense-categories.index');
     }

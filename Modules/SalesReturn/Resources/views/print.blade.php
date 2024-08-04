@@ -22,11 +22,11 @@
                 <div class="card-body">
                     <div class="row mb-4">
                         <div class="col-xs-4 mb-3 mb-md-0">
-                            <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Company Info:</h4>
+                            <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Perusahaan Info:</h4>
                             <div><strong>{{ settings()->company_name }}</strong></div>
                             <div>{{ settings()->company_address }}</div>
                             <div>Email: {{ settings()->company_email }}</div>
-                            <div>Phone: {{ settings()->company_phone }}</div>
+                            <div>Telepon: {{ settings()->company_phone }}</div>
                         </div>
 
                         <div class="col-xs-4 mb-3 mb-md-0">
@@ -34,18 +34,18 @@
                             <div><strong>{{ $customer->customer_name }}</strong></div>
                             <div>{{ $customer->address }}</div>
                             <div>Email: {{ $customer->customer_email }}</div>
-                            <div>Phone: {{ $customer->customer_phone }}</div>
+                            <div>Telepon: {{ $customer->customer_phone }}</div>
                         </div>
 
                         <div class="col-xs-4 mb-3 mb-md-0">
                             <h4 class="mb-2" style="border-bottom: 1px solid #dddddd;padding-bottom: 10px;">Invoice Info:</h4>
                             <div>Invoice: <strong>INV/{{ $sale_return->reference }}</strong></div>
-                            <div>Date: {{ \Carbon\Carbon::parse($sale_return->date)->format('d M, Y') }}</div>
+                            <div>Tanggal: {{ \Carbon\Carbon::parse($sale_return->date)->format('d M, Y') }}</div>
                             <div>
                                 Status: <strong>{{ $sale_return->status }}</strong>
                             </div>
                             <div>
-                                Payment Status: <strong>{{ $sale_return->payment_status }}</strong>
+                                Status Pembayaran: <strong>{{ $sale_return->payment_status }}</strong>
                             </div>
                         </div>
 
@@ -55,11 +55,11 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th class="align-middle">Product</th>
-                                <th class="align-middle">Net Unit Price</th>
-                                <th class="align-middle">Quantity</th>
-                                <th class="align-middle">Discount</th>
-                                <th class="align-middle">Tax</th>
+                                <th class="align-middle">Produk</th>
+                                <th class="align-middle">Net Unit Harga Jual 1</th>
+                                <th class="align-middle">Kuantitas</th>
+                                <th class="align-middle">Diskon</th>
+                                <th class="align-middle">Pajak</th>
                                 <th class="align-middle">Sub Total</th>
                             </tr>
                             </thead>
@@ -100,19 +100,19 @@
                             <table class="table">
                                 <tbody>
                                 <tr>
-                                    <td class="left"><strong>Discount ({{ $sale_return->discount_percentage }}%)</strong></td>
+                                    <td class="left"><strong>Diskon({{ $sale_return->discount_percentage }}%)</strong></td>
                                     <td class="right">{{ format_currency($sale_return->discount_amount) }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="left"><strong>Tax ({{ $sale_return->tax_percentage }}%)</strong></td>
+                                    <td class="left"><strong>Pajak ({{ $sale_return->tax_percentage }}%)</strong></td>
                                     <td class="right">{{ format_currency($sale_return->tax_amount) }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="left"><strong>Shipping)</strong></td>
+                                    <td class="left"><strong>Pengiriman</strong></td>
                                     <td class="right">{{ format_currency($sale_return->shipping_amount) }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="left"><strong>Grand Total</strong></td>
+                                    <td class="left"><strong>Total Akhir</strong></td>
                                     <td class="right"><strong>{{ format_currency($sale_return->total_amount) }}</strong></td>
                                 </tr>
                                 </tbody>

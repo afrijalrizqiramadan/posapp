@@ -81,7 +81,7 @@ class CurrencyController extends Controller
             'exchange_rate' => $request->exchange_rate
         ]);
 
-        toast('Currency Updated!', 'info');
+        toast('Currency Diperbarui!', 'info');
 
         return redirect()->route('currencies.index');
     }

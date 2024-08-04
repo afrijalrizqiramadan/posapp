@@ -146,7 +146,7 @@ class AdjustmentController extends Controller
             }
         });
 
-        toast('Adjustment Updated!', 'info');
+        toast('Adjustment Diperbarui!', 'info');
 
         return redirect()->route('adjustments.index');
     }

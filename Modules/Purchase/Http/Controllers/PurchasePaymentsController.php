@@ -128,7 +128,7 @@ class PurchasePaymentsController extends Controller
             ]);
         });
 
-        toast('Purchase Payment Updated!', 'info');
+        toast('Purchase Payment Diperbarui!', 'info');
 
         return redirect()->route('purchases.index');
     }
