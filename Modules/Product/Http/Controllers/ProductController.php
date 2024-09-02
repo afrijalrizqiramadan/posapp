@@ -16,21 +16,24 @@ use Modules\Upload\Entities\Upload;
 class ProductController extends Controller
 {
 
-    public function index(ProductDataTable $dataTable) {
+    public function index(ProductDataTable $dataTable)
+    {
         abort_if(Gate::denies('access_products'), 403);
 
         return $dataTable->render('product::products.index');
     }
 
 
-    public function create() {
+    public function create()
+    {
         abort_if(Gate::denies('create_products'), 403);
 
         return view('product::products.create');
     }
 
 
-    public function store(StoreProductRequest $request) {
+    public function store(StoreProductRequest $request)
+    {
         $product = Product::create($request->except('document'));
 
         if ($request->has('document')) {
@@ -45,21 +48,31 @@ class ProductController extends Controller
     }
 
 
-    public function show(Product $product) {
+    public function show(Product $product)
+    {
         abort_if(Gate::denies('show_products'), 403);
 
         return view('product::products.show', compact('product'));
     }
 
 
-    public function edit(Product $product) {
+    public function edit(Product $product)
+    {
         abort_if(Gate::denies('edit_products'), 403);
 
         return view('product::products.edit', compact('product'));
     }
 
 
-    public function update(UpdateProductRequest $request, Product $product) {
+    public function copy(Product $product)
+    {
+        abort_if(Gate::denies('edit_products'), 403);
+
+        return view('product::products.copy', compact('product'));
+    }
+
+    public function update(UpdateProductRequest $request, Product $product)
+    {
         $product->update($request->except('document'));
 
         if ($request->has('document')) {
@@ -85,8 +98,24 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
+    public function duplicate(StoreProductRequest $request)
+    {
+        $product = Product::create($request->except('document'));
 
-    public function destroy(Product $product) {
+        if ($request->has('document')) {
+            foreach ($request->input('document', []) as $file) {
+                $product->addMedia(Storage::path('temp/dropzone/' . $file))->toMediaCollection('images');
+            }
+        }
+
+        toast('Product Created!', 'success');
+
+        return redirect()->route('products.index');
+    }
+
+
+    public function destroy(Product $product)
+    {
         abort_if(Gate::denies('delete_products'), 403);
 
         $product->delete();

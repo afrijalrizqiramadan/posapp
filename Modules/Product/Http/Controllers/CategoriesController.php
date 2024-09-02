@@ -8,18 +8,27 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Gate;
 use Modules\Product\Entities\Category;
 use Modules\Product\DataTables\ProductCategoriesDataTable;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class CategoriesController extends Controller
 {
+    use LivewireAlert;
 
-    public function index(ProductCategoriesDataTable $dataTable) {
+    public function index(ProductCategoriesDataTable $dataTable)
+    {
         abort_if(Gate::denies('access_product_categories'), 403);
+        $category_max_id = Category::max('id') + 1;
+        $category_code = 'CA_' . str_pad($category_max_id, 2, '0', STR_PAD_LEFT);
 
-        return $dataTable->render('product::categories.index');
+        return $dataTable->render('product::categories.index', ['category_code' => $category_code]);
     }
 
 
-    public function store(Request $request) {
+
+
+    public function store(Request $request)
+    {
+
         abort_if(Gate::denies('access_product_categories'), 403);
 
         $request->validate([
@@ -32,13 +41,14 @@ class CategoriesController extends Controller
             'category_name' => $request->category_name,
         ]);
 
-        toast('Product Category Created!', 'success');
+        toast('Kategori Dibuat!', 'success');
 
-        return redirect()->back();
+        return redirect()->route('product-categories.index');
     }
 
 
-    public function edit($id) {
+    public function edit($id)
+    {
         abort_if(Gate::denies('access_product_categories'), 403);
 
         $category = Category::findOrFail($id);
@@ -47,7 +57,8 @@ class CategoriesController extends Controller
     }
 
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         abort_if(Gate::denies('access_product_categories'), 403);
 
         $request->validate([
@@ -60,13 +71,19 @@ class CategoriesController extends Controller
             'category_name' => $request->category_name,
         ]);
 
-        toast('Product Category Diperbarui!', 'info');
+        toast('Kategori Produk Diperbarui!', 'info');
 
         return redirect()->route('product-categories.index');
     }
+    public function create()
+    {
+        abort_if(Gate::denies('create_products-categories'), 403);
 
+        return view('product::categories.create');
+    }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         abort_if(Gate::denies('access_product_categories'), 403);
 
         $category = Category::findOrFail($id);
@@ -77,7 +94,7 @@ class CategoriesController extends Controller
 
         $category->delete();
 
-        toast('Product Category Deleted!', 'warning');
+        toast('Kategori Produk Dihapus!', 'warning');
 
         return redirect()->route('product-categories.index');
     }

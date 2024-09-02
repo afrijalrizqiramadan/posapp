@@ -1,4 +1,5 @@
-<div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+<div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="checkoutModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -31,14 +32,16 @@
                             <div class="form-row">
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="total_amount">Total Amount <span class="text-danger">*</span></label>
-                                        <input id="total_amount" type="text" class="form-control" name="total_amount" value="{{ $total_amount }}" readonly required>
+                                        <label for="total_amount">Total Harga <span class="text-danger">*</span></label>
+                                        <input id="total_amount" type="text" class="form-control" name="total_amount"
+                                            value="{{ $total_amount }}" readonly required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="paid_amount">Received Amount <span class="text-danger">*</span></label>
-                                        <input id="paid_amount" type="text" class="form-control" name="paid_amount" value="{{ $total_amount }}" required>
+                                        <label for="paid_amount">Pembayaran <span class="text-danger">*</span></label>
+                                        <input id="paid_amount" type="text" class="form-control" name="paid_amount"
+                                            value="{{ $total_amount }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -63,15 +66,15 @@
                                     <tr>
                                         <th>Total Produk</th>
                                         <td>
-                                                <span class="badge badge-success">
-                                                    {{ Cart::instance($cart_instance)->count() }}
-                                                </span>
+                                            <span class="badge badge-success">
+                                                {{ Cart::instance($cart_instance)->count() }}
+                                            </span>
                                         </td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <th>Pajak Pesanan  ({{ $global_tax }}%)</th>
                                         <td>(+) {{ format_currency(Cart::instance($cart_instance)->tax()) }}</td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <th>Diskon({{ $global_discount }}%)</th>
                                         <td>(-) {{ format_currency(Cart::instance($cart_instance)->discount()) }}</td>
@@ -84,7 +87,8 @@
                                     <tr class="text-primary">
                                         <th>Total Akhir</th>
                                         @php
-                                            $total_with_shipping = Cart::instance($cart_instance)->total() + (float) $shipping
+                                            $total_with_shipping =
+                                                Cart::instance($cart_instance)->total() + (float) $shipping;
                                         @endphp
                                         <th>
                                             (=) {{ format_currency($total_with_shipping) }}

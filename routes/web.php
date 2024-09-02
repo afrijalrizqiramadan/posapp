@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Auth\Profile;
+use App\Http\Livewire\Auth\SuntingProfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +28,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/payment-flow/chart-data', 'HomeController@paymentChart')
         ->name('payment-flow.chart');
-});
 
+    Route::group(['auth'], function () {
+        Route::get('keluar', function () {
+            Auth::logout();
+            request()->session()->invalidate();
+            request()->session()->regenerateToken();
+            return redirect()->route('login');
+        })->name('auth.keluar');
+        Route::get('profile', [Profile::class, '__invoke'])->name('profile.auth');
+        Route::get('sunting', [SuntingProfile::class, '__invoke'])->name('sunting-profile');
+    });
+});

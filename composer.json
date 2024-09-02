@@ -8,18 +8,21 @@
         "php": "^8.1",
         "anayarojo/shoppingcart": "^4.2",
         "barryvdh/laravel-snappy": "^1.0",
+        "diglactic/laravel-breadcrumbs": "^9.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "h4cc/wkhtmltopdf-amd64": "^0.12.4",
+        "jantinnerezo/livewire-alert": "^3.0",
         "laravel/framework": "^10.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^4.0",
-        "livewire/livewire": "^3.0",
+        "laravel/ui": "^4.5",
+        "livewire/livewire": "^3.5",
         "maatwebsite/excel": "^3.1",
         "milon/barcode": "^10.0",
         "nwidart/laravel-modules": "^10.0",
         "realrashid/sweet-alert": "^6.0",
         "spatie/laravel-medialibrary": "^10.0",
         "spatie/laravel-permission": "^5.0",
+        "wire-elements/modal": "^2.0",
         "yajra/laravel-datatables": "^10.0"
     },
     "require-dev": {
@@ -39,18 +42,25 @@
             "Modules\\": "Modules/"
         },
         "files": [
-            "app/Helpers/helpers.php"
+            "app/Helpers/helpers.php",
+            "app/Helpers/MenuAktif.php"
+
         ]
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+         "files": [
+            "app/Helpers/MenuAktif.php"
+
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""

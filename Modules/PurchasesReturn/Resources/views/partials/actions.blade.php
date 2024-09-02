@@ -9,7 +9,7 @@
             </a>
         @endcan
         @can('access_purchase_return_payments')
-            @if($data->due_amount > 0)
+            @if ($data->due_amount > 0)
                 <a href="{{ route('purchase-return-payments.create', $data->id) }}" class="dropdown-item">
                     <i class="bi bi-plus-circle-dotted mr-2 text-success" style="line-height: 1;"></i> Tambah pembayaran
                 </a>
@@ -26,13 +26,15 @@
             </a>
         @endcan
         @can('delete_purchase_return')
-            <button id="delete" class="dropdown-item" onclick="
+            <button id="delete" class="dropdown-item"
+                onclick="
                 event.preventDefault();
-                if (confirm('Are you sure? It will delete the data permanently!')) {
+                if (confirm('Apakah anda yakin? Ini akan menghapus data secara permanen!')) {
                 document.getElementById('destroy{{ $data->id }}').submit()
                 }">
                 <i class="bi bi-trash mr-2 text-danger" style="line-height: 1;"></i> Hapus
-                <form id="destroy{{ $data->id }}" class="d-none" action="{{ route('purchase-returns.destroy', $data->id) }}" method="POST">
+                <form id="destroy{{ $data->id }}" class="d-none"
+                    action="{{ route('purchase-returns.destroy', $data->id) }}" method="POST">
                     @csrf
                     @method('delete')
                 </form>

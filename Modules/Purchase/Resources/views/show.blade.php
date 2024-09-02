@@ -19,10 +19,12 @@
                         <div>
                             Referensi: <strong>{{ $purchase->reference }}</strong>
                         </div>
-                        <a target="_blank" class="btn btn-sm btn-secondary mfs-auto mfe-1 d-print-none" href="{{ route('purchases.pdf', $purchase->id) }}">
+                        <a target="_blank" class="btn btn-sm btn-secondary mfs-auto mfe-1 d-print-none"
+                            href="{{ route('purchases.pdf', $purchase->id) }}">
                             <i class="bi bi-printer"></i> Cetak
                         </a>
-                        <a target="_blank" class="btn btn-sm btn-info mfe-1 d-print-none" href="{{ route('purchases.pdf', $purchase->id) }}">
+                        <a target="_blank" class="btn btn-sm btn-info mfe-1 d-print-none"
+                            href="{{ route('purchases.pdf', $purchase->id) }}">
                             <i class="bi bi-save"></i> Simpan
                         </a>
                     </div>
@@ -61,44 +63,44 @@
                         <div class="table-responsive-sm">
                             <table class="table table-striped">
                                 <thead>
-                                <tr>
-                                    <th class="align-middle">Produk</th>
-                                    <th class="align-middle">Net Unit Harga Jual 1</th>
-                                    <th class="align-middle">Kuantitas</th>
-                                    <th class="align-middle">Diskon</th>
-                                    <th class="align-middle">Pajak</th>
-                                    <th class="align-middle">Sub Total</th>
-                                </tr>
+                                    <tr>
+                                        <th class="align-middle">Produk</th>
+                                        <th class="align-middle">Net Unit Harga Ecer</th>
+                                        <th class="align-middle">Kuantitas</th>
+                                        <th class="align-middle">Diskon</th>
+                                        <th class="align-middle">Pajak</th>
+                                        <th class="align-middle">Sub Total</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($purchase->purchaseDetails as $item)
-                                    <tr>
-                                        <td class="align-middle">
-                                            {{ $item->product_name }} <br>
-                                            <span class="badge badge-success">
-                                                {{ $item->product_code }}
-                                            </span>
-                                        </td>
+                                    @foreach ($purchase->purchaseDetails as $item)
+                                        <tr>
+                                            <td class="align-middle">
+                                                {{ $item->product_name }} <br>
+                                                <span class="badge badge-success">
+                                                    {{ $item->product_code }}
+                                                </span>
+                                            </td>
 
-                                        <td class="align-middle">{{ format_currency($item->unit_price) }}</td>
+                                            <td class="align-middle">{{ format_currency($item->unit_price) }}</td>
 
-                                        <td class="align-middle">
-                                            {{ $item->quantity }}
-                                        </td>
+                                            <td class="align-middle">
+                                                {{ $item->quantity }}
+                                            </td>
 
-                                        <td class="align-middle">
-                                            {{ format_currency($item->product_discount_amount) }}
-                                        </td>
+                                            <td class="align-middle">
+                                                {{ format_currency($item->product_discount_amount) }}
+                                            </td>
 
-                                        <td class="align-middle">
-                                            {{ format_currency($item->product_tax_amount) }}
-                                        </td>
+                                            <td class="align-middle">
+                                                {{ format_currency($item->product_tax_amount) }}
+                                            </td>
 
-                                        <td class="align-middle">
-                                            {{ format_currency($item->sub_total) }}
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                            <td class="align-middle">
+                                                {{ format_currency($item->sub_total) }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -106,22 +108,25 @@
                             <div class="col-lg-4 col-sm-5 ml-md-auto">
                                 <table class="table">
                                     <tbody>
-                                    <tr>
-                                        <td class="left"><strong>Diskon ({{ $purchase->discount_percentage }}%)</strong></td>
-                                        <td class="right">{{ format_currency($purchase->discount_amount) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left"><strong>Pajak ({{ $purchase->tax_percentage }}%)</strong></td>
-                                        <td class="right">{{ format_currency($purchase->tax_amount) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left"><strong>Pengiriman)</strong></td>
-                                        <td class="right">{{ format_currency($purchase->shipping_amount) }}</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="left"><strong>Total Akhir</strong></td>
-                                        <td class="right"><strong>{{ format_currency($purchase->total_amount) }}</strong></td>
-                                    </tr>
+                                        <tr>
+                                            <td class="left"><strong>Diskon
+                                                    ({{ $purchase->discount_percentage }}%)</strong></td>
+                                            <td class="right">{{ format_currency($purchase->discount_amount) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left"><strong>Pajak ({{ $purchase->tax_percentage }}%)</strong>
+                                            </td>
+                                            <td class="right">{{ format_currency($purchase->tax_amount) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left"><strong>Pengiriman)</strong></td>
+                                            <td class="right">{{ format_currency($purchase->shipping_amount) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left"><strong>Total Akhir</strong></td>
+                                            <td class="right">
+                                                <strong>{{ format_currency($purchase->total_amount) }}</strong></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -132,4 +137,3 @@
         </div>
     </div>
 @endsection
-

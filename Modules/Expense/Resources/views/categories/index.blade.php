@@ -22,7 +22,8 @@
                 <div class="card">
                     <div class="card-body">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#categoryCreateModal">
+                        <button type="button" class="btn btn-success" data-toggle="modal"
+                            data-target="#categoryCreateModal">
                             Tambah Kategori <i class="bi bi-plus"></i>
                         </button>
 
@@ -38,7 +39,8 @@
     </div>
 
     <!-- Create Modal -->
-    <div class="modal fade" id="categoryCreateModal" tabindex="-1" role="dialog" aria-labelledby="categoryCreateModal" aria-hidden="true">
+    <div class="modal fade" id="categoryCreateModal" tabindex="-1" role="dialog" aria-labelledby="categoryCreateModal"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

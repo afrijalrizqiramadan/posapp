@@ -79,7 +79,7 @@ class PurchasesReturnController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Shipped' || $request->status == 'Selesai') {
+                if ($request->status == 'Pengiriman' || $request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty
@@ -160,7 +160,7 @@ class PurchasesReturnController extends Controller
             }
 
             foreach ($purchase_return->purchaseReturnDetails as $purchase_return_detail) {
-                if ($purchase_return->status == 'Shipped' || $purchase_return->status == 'Selesai') {
+                if ($purchase_return->status == 'Pengiriman' || $purchase_return->status == 'Selesai') {
                     $product = Product::findOrFail($purchase_return_detail->product_id);
                     $product->update([
                         'product_quantity' => $product->product_quantity + $purchase_return_detail->quantity
@@ -203,7 +203,7 @@ class PurchasesReturnController extends Controller
                     'product_tax_amount' => $cart_item->options->product_tax * 100,
                 ]);
 
-                if ($request->status == 'Shipped' || $request->status == 'Selesai') {
+                if ($request->status == 'Pengiriman' || $request->status == 'Selesai') {
                     $product = Product::findOrFail($cart_item->id);
                     $product->update([
                         'product_quantity' => $product->product_quantity - $cart_item->qty

@@ -41,6 +41,7 @@
                     prefix: '{{ settings()->currency->symbol }}',
                     thousands: '{{ settings()->currency->thousand_separator }}',
                     decimal: '{{ settings()->currency->decimal_separator }}',
+                    precision: 0,
                     allowZero: false,
                 });
 
@@ -48,6 +49,7 @@
                     prefix: '{{ settings()->currency->symbol }}',
                     thousands: '{{ settings()->currency->thousand_separator }}',
                     decimal: '{{ settings()->currency->decimal_separator }}',
+                    precision: 0,
                     allowZero: true,
                 });
 
@@ -55,12 +57,20 @@
                 $('#total_amount').maskMoney('mask');
 
                 $('#checkout-form').submit(function() {
-                    var paid_amount = $('#paid_amount').maskMoney('unmasked')[0];
+                    var paid_amount = parseCurrency($('#paid_amount').val());
+                    var total_amount = parseCurrency($('#total_amount').val());
+
                     $('#paid_amount').val(paid_amount);
-                    var total_amount = $('#total_amount').maskMoney('unmasked')[0];
                     $('#total_amount').val(total_amount);
                 });
             });
         });
+
+        function parseCurrency(value) {
+            // Menghapus simbol 'Rp' dan titik
+            let numericValue = value.replace(/Rp|\./g, '');
+            // Mengubah string menjadi angka
+            return parseInt(numericValue, 10);
+        }
     </script>
 @endpush

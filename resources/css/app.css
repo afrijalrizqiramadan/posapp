@@ -1,0 +1,14 @@
+@import 'flatpickr/dist/flatpickr.css';
+
+.select2-selection {
+  font-size: 14px !important;
+}
+
+.select2-result {
+  font-size: 14px !important;
+}
+
+.bg-muted {
+  background-color: #6e7278;
+  color: white;
+}

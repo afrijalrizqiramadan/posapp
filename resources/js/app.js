@@ -1,7 +1,10 @@
-import './bootstrap.js';
-import '@coreui/coreui/dist/js/coreui.bundle.min.js';
-
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
-
+import './bootstrap';
+import Alpine from 'alpinejs';
+import {Html5QrcodeScanner} from "html5-qrcode"
+import {Html5Qrcode} from "html5-qrcode"
+import mask from '@alpinejs/mask'
+window.Alpine = Alpine;
+Alpine.start();
+Alpine.plugin(mask)
+import flatpickr from 'flatpickr';
+window.flatpickr = flatpickr;

@@ -1,8 +1,7 @@
 <div class="input-group d-flex justify-content-center">
-    <input wire:model="unit_price.{{ $cart_item->id }}" style="min-width: 40px;max-width: 90px;" type="text" class="form-control" min="0">
-    <div class="input-group-append">
-        <button @click="open{{ $cart_item->id }} = !open{{ $cart_item->id }}" type="button" wire:click="updatePrice('{{ $cart_item->rowId }}', {{ $cart_item->id }})" class="btn btn-info">
-            <i class="bi bi-check"></i>
-        </button>
-    </div>
+    <select name="price" id="price" class="form-control"
+        wire:change="updatePrice('{{ $cart_item->rowId }}', $event.target.value)">
+        <option value="{{ $cart_item->options->price1 }}">{{ format_currency($cart_item->options->price1) }}</option>
+        <option value="{{ $cart_item->options->price2 }}">{{ format_currency($cart_item->options->price2) }}</option>
+    </select>
 </div>

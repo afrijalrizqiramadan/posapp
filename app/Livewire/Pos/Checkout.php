@@ -91,6 +91,8 @@ class Checkout extends Component
             'price'   => $this->calculate($product)['price'],
             'weight'  => 1,
             'options' => [
+                'price1' => $this->calculate($product)['price'],
+                'price2' => $this->calculate($product)['price2'],
                 'product_discount'      => 0.00,
                 'product_discount_type' => 'fixed',
                 'sub_total'             => $this->calculate($product)['sub_total'],
@@ -123,7 +125,14 @@ class Checkout extends Component
     {
         Cart::instance($this->cart_instance)->setGlobalDiscount((int)$this->global_discount);
     }
+    public function updatePrice($rowId, $newPrice)
+    {
+        Cart::instance($this->cart_instance)->update($rowId, [
+            'price' => $newPrice,
+        ]);
 
+        // Optionally, recalculate totals or trigger additional logic
+    }
     public function updateQuantity($row_id, $product_id)
     {
         if ($this->check_quantity[$product_id] < $this->quantity[$product_id]) {
@@ -144,7 +153,6 @@ class Checkout extends Component
                 'unit'                  => $cart_item->options->unit,
                 'product_tax'           => $cart_item->options->product_tax,
                 'unit_price'            => $cart_item->options->unit_price,
-                'unit_price2'            => $cart_item->options->unit_price2,
                 'product_discount'      => $cart_item->options->product_discount,
                 'product_discount_type' => $cart_item->options->product_discount_type,
             ]
@@ -198,6 +206,7 @@ class Checkout extends Component
 
         // $product_price = $this->customer_id == 1 || $this->customer_id === null ? $product['product_price'] : $product['product_price2'];
         $product_price = $product['product_price'];
+        $product_price2 = $product['product_price2'];
 
         if ($product['product_tax_type'] == 1) {
             $price = $product_price + ($product_price * ($product['product_order_tax'] / 100));
@@ -216,7 +225,7 @@ class Checkout extends Component
             $sub_total = $product_price;
         }
 
-        return ['price' => $price, 'unit_price' => $unit_price, 'product_tax' => $product_tax, 'sub_total' => $sub_total];
+        return ['price' => $product_price, 'price2' => $product_price2, 'unit_price' => $unit_price, 'product_tax' => $product_tax, 'sub_total' => $sub_total];
 
         // if ($product['product_tax_type'] == 1) {
         //     $price = $product['product_price'] + ($product['product_price'] * ($product['product_order_tax'] / 100));

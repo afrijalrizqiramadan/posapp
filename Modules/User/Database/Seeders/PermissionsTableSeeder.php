@@ -37,26 +37,26 @@ class PermissionsTableSeeder extends Seeder
             //Barcode Printing
             'print_barcodes',
             //Adjustments
-            'access_adjustments',
-            'create_adjustments',
-            'show_adjustments',
-            'edit_adjustments',
-            'delete_adjustments',
+            // 'access_adjustments',
+            // 'create_adjustments',
+            // 'show_adjustments',
+            // 'edit_adjustments',
+            // 'delete_adjustments',
             //Quotaions
-            'access_quotations',
-            'create_quotations',
-            'show_quotations',
-            'edit_quotations',
-            'delete_quotations',
+            // 'access_quotations',
+            // 'create_quotations',
+            // 'show_quotations',
+            // 'edit_quotations',
+            // 'delete_quotations',
             //Create Sale From Quotation
-            'create_quotation_sales',
+            // 'create_quotation_sales',
             //Send Quotation On Email
-            'send_quotation_mails',
+            // 'send_quotation_mails',
             //Expenses
-            'access_expenses',
-            'create_expenses',
-            'edit_expenses',
-            'delete_expenses',
+            // 'access_expenses',
+            // 'create_expenses',
+            // 'edit_expenses',
+            // 'delete_expenses',
             //Expense Categories
             'access_expense_categories',
             //Customers
@@ -82,36 +82,36 @@ class PermissionsTableSeeder extends Seeder
             //Sale Payments
             'access_sale_payments',
             //Sale Returns
-            'access_sale_returns',
-            'create_sale_returns',
-            'show_sale_returns',
-            'edit_sale_returns',
-            'delete_sale_returns',
+            // 'access_sale_returns',
+            // 'create_sale_returns',
+            // 'show_sale_returns',
+            // 'edit_sale_returns',
+            // 'delete_sale_returns',
             //Sale Return Payments
-            'access_sale_return_payments',
+            // 'access_sale_return_payments',
             //Purchases
-            'access_purchases',
-            'create_purchases',
-            'show_purchases',
-            'edit_purchases',
-            'delete_purchases',
+            // 'access_purchases',
+            // 'create_purchases',
+            // 'show_purchases',
+            // 'edit_purchases',
+            // 'delete_purchases',
             //Purchase Payments
-            'access_purchase_payments',
+            // 'access_purchase_payments',
             //Purchase Returns
-            'access_purchase_returns',
-            'create_purchase_returns',
-            'show_purchase_returns',
-            'edit_purchase_returns',
-            'delete_purchase_returns',
+            // 'access_purchase_returns',
+            // 'create_purchase_returns',
+            // 'show_purchase_returns',
+            // 'edit_purchase_returns',
+            // 'delete_purchase_returns',
             //Purchase Return Payments
-            'access_purchase_return_payments',
+            // 'access_purchase_return_payments',
             //Reports
-            'access_reports',
+            // 'access_reports',
             //Currencies
-            'access_currencies',
-            'create_currencies',
-            'edit_currencies',
-            'delete_currencies',
+            // 'access_currencies',
+            // 'create_currencies',
+            // 'edit_currencies',
+            // 'delete_currencies',
             //Settings
             'access_settings',
             //Units
