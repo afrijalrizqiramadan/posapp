@@ -1,6 +1,6 @@
 <div>
-    <div class="form-row">
-        <div class="col-md-7">
+    <div class="row">
+        <div class="col-md-6">
             <div class="form-group">
                 <label>Kategori Produk</label>
                 <select wire:model.live="category" class="form-control">
@@ -11,7 +11,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 <label>Jumlah Produk</label>
                 <select wire:model.live="showCount" class="form-control">
@@ -24,4 +24,5 @@
             </div>
         </div>
     </div>
+    <hr>
 </div>
