@@ -1,4 +1,4 @@
-{{-- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('title', 'Home')
 
@@ -6,9 +6,9 @@
     <ol class="breadcrumb border-0 m-0">
         <li class="breadcrumb-item active">Home</li>
     </ol>
-@endsection --}}
+@endsection
 
-<x-app-layout>
+@section('content')
     <div class="container-fluid">
         @can('show_total_stats')
             <div class="row">
@@ -116,7 +116,7 @@
             </div>
         @endcan
     </div>
-</x-app-layout>
+@endsection
 
 @section('third_party_scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"

@@ -35,7 +35,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="supplier_email">Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" name="supplier_email" required value="{{ $supplier->supplier_email }}">
+                                        <input type="email" class="form-control" name="supplier_email">
                                     </div>
                                 </div>
                             </div>
@@ -53,12 +53,12 @@
                                         <input type="text" class="form-control" name="city" required value="{{ $supplier->city }}">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <!-- <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="country">Negara <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="country" required value="{{ $supplier->country }}">
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-row">

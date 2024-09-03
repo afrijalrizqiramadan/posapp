@@ -16,7 +16,7 @@
                         <a href="{{ route('product-categories.create') }}" class="btn btn-success">
                             Tambah Kategori <i class="bi bi-plus"></i>
                         </a>
-
+                        <hr>
                         <div class="table-responsive">
                             {!! $dataTable->table() !!}
                         </div>

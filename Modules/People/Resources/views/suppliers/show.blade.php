@@ -34,10 +34,10 @@
                                     <th>Kota</th>
                                     <td>{{ $supplier->city }}</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <th>Negara</th>
                                     <td>{{ $supplier->country }}</td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <th>Alamat</th>
                                     <td>{{ $supplier->address }}</td>

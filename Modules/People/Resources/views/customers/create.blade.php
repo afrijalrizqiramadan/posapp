@@ -34,7 +34,7 @@
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label for="customer_email">Email <span class="text-danger">*</span></label>
-                                        <input type="email" class="form-control" name="customer_email" required>
+                                        <input type="email" class="form-control" name="customer_email">
                                     </div>
                                 </div>
                             </div>
@@ -52,12 +52,12 @@
                                         <input type="text" class="form-control" name="city" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <!-- <div class="col-lg-4">
                                     <div class="form-group">
                                         <label for="country">Negara <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" name="country" required>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
 
                             <div class="form-row">

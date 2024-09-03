@@ -17,6 +17,12 @@ Breadcrumbs::for('products.create', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Buat Produk', route('products.create'));
 });
+Breadcrumbs::for('products.edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+});
+Breadcrumbs::for('products.copy', function (BreadcrumbTrail $trail) {
+    $trail->parent('home');
+});
 Breadcrumbs::for('products.index', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('Daftar Produk', route('products.index'));
