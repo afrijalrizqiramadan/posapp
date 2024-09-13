@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <label for="customer_email">Email <span class="text-danger">*</span></label>
+                                        <label for="customer_email">Email <span class="text-danger"></span></label>
                                         <input type="email" class="form-control" name="customer_email">
                                     </div>
                                 </div>
@@ -42,14 +42,14 @@
                             <div class="form-row">
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="customer_phone">Telepon <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="customer_phone" required>
+                                        <label for="customer_phone">Telepon <span class="text-danger"></span></label>
+                                        <input type="text" class="form-control" name="customer_phone">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label for="city">Kota <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="city" required>
+                                        <label for="city">Kota <span class="text-danger"></span></label>
+                                        <input type="text" class="form-control" name="city">
                                     </div>
                                 </div>
                                 <!-- <div class="col-lg-4">
@@ -63,8 +63,8 @@
                             <div class="form-row">
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <label for="address">Alamat <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="address" required>
+                                        <label for="address">Alamat <span class="text-danger"></span></label>
+                                        <input type="text" class="form-control" name="address">
                                     </div>
                                 </div>
                             </div>

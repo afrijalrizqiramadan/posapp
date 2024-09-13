@@ -182,7 +182,7 @@
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle border-white header-profile-user"
-                                src="{{ auth()->user()->profile_photo_url }}" alt="Header Avatar">
+                                src="{{asset('assets/images/users/user-dummy-img.jpg')}}" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span
                                     class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ auth()->user()->name }}</span>
