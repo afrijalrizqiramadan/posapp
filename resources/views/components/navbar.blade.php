@@ -229,20 +229,20 @@
                             <i class="ri-list-settings-line"></i> <span data-key="t-dashboards">Penjualan</span>
                         </a>
                         @can('create_sales')
-                            <div class="collapse menu-dropdown" id="adjustments">
+                            <div class="collapse menu-dropdown" id="sales">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
-                                        <a href="{{ route('adjustments.create') }}"
+                                        <a href="{{ route('sales.create') }}"
                                             class="nav-link {{ menuAktif(route('sales.create')) }}" data-key="t-crm">
                                             Buat Penjualan </a>
                                     </li>
                                 </ul>
                             </div>
                         @endcan
-                        <div class="collapse menu-dropdown" id="adjustments">
+                        <div class="collapse menu-dropdown" id="sales">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('adjustments.index') }}"
+                                    <a href="{{ route('sales.index') }}"
                                         class="nav-link {{ menuAktif(route('sales.index')) }}" data-key="t-crm">
                                         Penjualan </a>
                                 </li>
