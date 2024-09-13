@@ -224,8 +224,8 @@
 
                 @can('access_sales')
                     <li class="nav-item">
-                        <a class="nav-link menu-link" href="#adjustments" data-bs-toggle="collapse" role="button"
-                            aria-expanded="false" aria-controls="adjustments">
+                        <a class="nav-link menu-link" href="#sales" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sales">
                             <i class="ri-list-settings-line"></i> <span data-key="t-dashboards">Penjualan</span>
                         </a>
                         @can('create_sales')
