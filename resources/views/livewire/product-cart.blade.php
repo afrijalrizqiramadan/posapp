@@ -52,8 +52,7 @@
                                 </td>
 
                                 <td class="align-middle text-center text-center">
-                                    <span
-                                        class="badge badge-info">{{ $cart_item->options->stock . ' ' . $cart_item->options->unit }}</span>
+                                   {{ $cart_item->options->stock . ' ' . $cart_item->options->unit }}
                                 </td>
 
                                 <td class="align-middle text-center">

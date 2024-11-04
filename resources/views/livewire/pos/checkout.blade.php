@@ -59,7 +59,7 @@
                                         <td class="align-middle">
                                             @include('livewire.includes.product-cart-quantity')
                                         </td>
-
+                                        
                                         <td class="align-middle text-center">
                                             <a href="#"
                                                 wire:click.prevent="removeItem('{{ $cart_item->rowId }}')">

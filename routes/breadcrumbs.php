@@ -91,6 +91,7 @@ Breadcrumbs::for('users.create', function (BreadcrumbTrail $trail) {
     $trail->parent('users.index');
     $trail->push('Buat Pengguna', route('users.create'));
 });
+
 Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail) {
     $trail->push('Pengguna', route('users.index'));
 });
@@ -135,4 +136,8 @@ Breadcrumbs::for('app.pos.index', function (BreadcrumbTrail $trail) {
 });
 Breadcrumbs::for('sales.index', function (BreadcrumbTrail $trail) {
     $trail->push('POS', route('app.pos.index'));
+});
+Breadcrumbs::for('sales.create', function (BreadcrumbTrail $trail) {
+    $trail->parent('sales.index');
+    $trail->push('Buat Penjualan', route('sales.create'));
 });

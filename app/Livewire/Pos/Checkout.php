@@ -111,9 +111,19 @@ class Checkout extends Component
         $this->total_amount = $this->calculateTotal();
     }
 
-    public function removeItem($row_id)
+    public function removeItem($rowId)
     {
-        Cart::instance($this->cart_instance)->remove($row_id);
+        // dd($this->cart_instance);
+        Cart::instance($this->cart_instance)->remove($rowId);
+        
+    }
+    public function updatePrice($rowId, $newPrice)
+    {
+        Cart::instance($this->cart_instance)->update($rowId, [
+            'price' => $newPrice,
+        ]);
+
+        // Optionally, recalculate totals or trigger additional logic
     }
 
     public function updatedGlobalTax()
@@ -125,14 +135,7 @@ class Checkout extends Component
     {
         Cart::instance($this->cart_instance)->setGlobalDiscount((int)$this->global_discount);
     }
-    public function updatePrice($rowId, $newPrice)
-    {
-        Cart::instance($this->cart_instance)->update($rowId, [
-            'price' => $newPrice,
-        ]);
 
-        // Optionally, recalculate totals or trigger additional logic
-    }
     public function updateQuantity($row_id, $product_id)
     {
         if ($this->check_quantity[$product_id] < $this->quantity[$product_id]) {

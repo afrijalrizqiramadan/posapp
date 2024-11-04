@@ -108,7 +108,6 @@ class ProductCart extends Component
                 'unit_price'            => $this->calculate($product)['unit_price']
             ]
         ]);
-
         $this->check_quantity[$product['id']] = $product['product_quantity'];
         $this->quantity[$product['id']] = 1;
         $this->discount_type[$product['id']] = 'fixed';
@@ -117,7 +116,15 @@ class ProductCart extends Component
 
     public function removeItem($row_id)
     {
-        Cart::instance($this->cart_instance)->remove($row_id);
+        // Cart::instance($this->cart_instance)->destroy(); // Menghapus semua item dari cart
+       
+      
+        $carts = Cart::instance($this->cart_instance)->remove($row_id);
+        // return true;
+        // $cartContents = Cart::instance($this->cart_instance)->content();
+        // dd($row_id, $cartContents->toArray());
+        
+
     }
 
     public function updatedGlobalTax()
@@ -138,8 +145,10 @@ class ProductCart extends Component
                 return;
             }
         }
-
-        Cart::instance($this->cart_instance)->update($row_id, $this->quantity[$product_id]);
+        $cartContents = Cart::instance($this->cart_instance)->content();
+        dd($row_id, $this->quantity[$product_id]);
+        
+        // Cart::instance($this->cart_instance)->update($row_id, $this->quantity[$product_id]);
 
         $cart_item = Cart::instance($this->cart_instance)->get($row_id);
 

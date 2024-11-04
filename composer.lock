@@ -8,27 +8,27 @@
     "packages": [
         {
             "name": "anayarojo/shoppingcart",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/anayarojo/laravel-shopping-cart.git",
-                "reference": "a93e04a36d6f9c1e4af8bbddfede021ff412c685"
+                "reference": "96e0f3c88cbb5ec2c28e09b1e480e28103fcbe1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anayarojo/laravel-shopping-cart/zipball/a93e04a36d6f9c1e4af8bbddfede021ff412c685",
-                "reference": "a93e04a36d6f9c1e4af8bbddfede021ff412c685",
+                "url": "https://api.github.com/repos/anayarojo/laravel-shopping-cart/zipball/96e0f3c88cbb5ec2c28e09b1e480e28103fcbe1e",
+                "reference": "96e0f3c88cbb5ec2c28e09b1e480e28103fcbe1e",
                 "shasum": ""
             },
             "require": {
-                "illuminate/events": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10",
-                "illuminate/session": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10",
-                "illuminate/support": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10",
-                "nesbot/carbon": "~1.20||^1.26.3||^2.0"
+                "illuminate/events": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10||^11",
+                "illuminate/session": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10||^11",
+                "illuminate/support": "5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10||^11",
+                "nesbot/carbon": "~1.20||^1.26.3||^2.0||^3.0"
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "orchestra/testbench": "^3.4|^4.0|^5.0|^6.0",
+                "orchestra/testbench": "^3.4|^4.0|^5.0|^6.0|^9.0",
                 "phpunit/phpunit": "~5.0||~6.0||~7.0||~8.0||~9.0||~10.0"
             },
             "suggest": {
@@ -77,9 +77,9 @@
                 "shoppingcart"
             ],
             "support": {
-                "source": "https://github.com/anayarojo/laravel-shopping-cart/tree/4.2.2"
+                "source": "https://github.com/anayarojo/laravel-shopping-cart/tree/4.2.3"
             },
-            "time": "2023-04-19T16:03:37+00:00"
+            "time": "2024-03-19T21:32:39+00:00"
         },
         {
             "name": "barryvdh/laravel-snappy",
