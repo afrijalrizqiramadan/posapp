@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Pos;
 
+use Exception;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Livewire\Component;
 
@@ -56,7 +57,9 @@ class Checkout extends Component
         if ($this->customer_id != null) {
             $this->dispatch('showCheckoutModal');
         } else {
-            session()->flash('message', 'Pilih Pelanggan Terlebih Dahulu');
+            $this->customer_id=1;
+            $this->dispatch('showCheckoutModal');
+            // session()->flash('message', 'Pilih Pelanggan Terlebih Dahulu');
         }
     }
 
@@ -74,33 +77,41 @@ class Checkout extends Component
     {
         $cart = Cart::instance($this->cart_instance);
 
-        $exists = $cart->search(function ($cartItem, $rowId) use ($product) {
+        // $exists = $cart->search(function ($cartItem, $rowId) use ($product) {
+        //     return $cartItem->id == $product['id'];
+        // });
+        $exists = $cart->search(function ($cartItem) use ($product) {
             return $cartItem->id == $product['id'];
-        });
-
-        if ($exists->isNotEmpty()) {
+        });    
+        if ($exists->count()) {
             session()->flash('message', 'Produk Tersedia di Keranjang');
-
             return;
         }
+        $calculated = $this->calculate($product);
+
+        // if ($exists->isNotEmpty()) {
+        //     session()->flash('message', 'Produk Tersedia di Keranjang');
+
+        //     return;
+        // }
 
         $cart->add([
             'id'      => $product['id'],
             'name'    => $product['product_name'],
             'qty'     => 1,
-            'price'   => $this->calculate($product)['price'],
+            'price'   => $calculated['price'],
             'weight'  => 1,
             'options' => [
-                'price1' => $this->calculate($product)['price'],
-                'price2' => $this->calculate($product)['price2'],
+                'price1' => $calculated['price'],
+                'price2' => $calculated['price2'],
                 'product_discount'      => 0.00,
                 'product_discount_type' => 'fixed',
-                'sub_total'             => $this->calculate($product)['sub_total'],
+                'sub_total'             => $calculated['sub_total'],
                 'code'                  => $product['product_code'],
                 'stock'                 => $product['product_quantity'],
                 'unit'                  => $product['product_unit'],
-                'product_tax'           => $this->calculate($product)['product_tax'],
-                'unit_price'            => $this->calculate($product)['unit_price'],
+                'product_tax'           => $calculated['product_tax'],
+                'unit_price'            => $calculated['unit_price'],
             ]
         ]);
 
@@ -108,15 +119,35 @@ class Checkout extends Component
         $this->quantity[$product['id']] = 1;
         $this->discount_type[$product['id']] = 'fixed';
         $this->item_discount[$product['id']] = 0;
+        
         $this->total_amount = $this->calculateTotal();
     }
 
     public function removeItem($rowId)
     {
-        // dd($this->cart_instance);
-        Cart::instance($this->cart_instance)->remove($rowId);
-        
+        try {
+            // Ambil instance keranjang
+            $cart = Cart::instance($this->cart_instance);
+    
+            // Periksa apakah item dengan `rowId` yang diberikan ada di keranjang
+            $cartItem = $cart->get($rowId);
+            if ($cartItem) {
+                // Hapus item dari keranjang
+                $cart->remove($rowId);
+    
+                // Catat informasi item yang dihapus dan isi keranjang setelah penghapusan
+                info("Item with rowId {$rowId} removed successfully.");
+                info('Updated cart content:', $cart->content()->toArray());
+            } else {
+                // Log jika item tidak ditemukan
+                info("Item with rowId {$rowId} not found.");
+            }
+        } catch (Exception $e) {
+            // Tangani error dan catat log error
+            info("Error removing item: " . $e->getMessage());
+        }
     }
+
     public function updatePrice($rowId, $newPrice)
     {
         Cart::instance($this->cart_instance)->update($rowId, [
@@ -136,7 +167,7 @@ class Checkout extends Component
         Cart::instance($this->cart_instance)->setGlobalDiscount((int)$this->global_discount);
     }
 
-    public function updateQuantity($row_id, $product_id)
+    public function updateQuantity($rowId, $product_id)
     {
         if ($this->check_quantity[$product_id] < $this->quantity[$product_id]) {
             session()->flash('message', 'Jumlah yang Diminta Tidak Tersedia Dalam Stok');
@@ -144,22 +175,22 @@ class Checkout extends Component
             return;
         }
 
-        Cart::instance($this->cart_instance)->update($row_id, $this->quantity[$product_id]);
+        Cart::instance($this->cart_instance)->update($rowId, $this->quantity[$product_id]);
 
-        $cart_item = Cart::instance($this->cart_instance)->get($row_id);
+        $cart_item = Cart::instance($this->cart_instance)->get($rowId);
 
-        Cart::instance($this->cart_instance)->update($row_id, [
-            'options' => [
-                'sub_total'             => $cart_item->price * $cart_item->qty,
-                'code'                  => $cart_item->options->code,
-                'stock'                 => $cart_item->options->stock,
-                'unit'                  => $cart_item->options->unit,
-                'product_tax'           => $cart_item->options->product_tax,
-                'unit_price'            => $cart_item->options->unit_price,
-                'product_discount'      => $cart_item->options->product_discount,
-                'product_discount_type' => $cart_item->options->product_discount_type,
-            ]
-        ]);
+        // Cart::instance($this->cart_instance)->update($rowId, [
+        //     'options' => [
+        //         'sub_total'             => $cart_item->price * $cart_item->qty,
+        //         'code'                  => $cart_item->options->code,
+        //         'stock'                 => $cart_item->options->stock,
+        //         'unit'                  => $cart_item->options->unit,
+        //         'product_tax'           => $cart_item->options->product_tax,
+        //         'unit_price'            => $cart_item->options->unit_price,
+        //         'product_discount'      => $cart_item->options->product_discount,
+        //         'product_discount_type' => $cart_item->options->product_discount_type,
+        //     ]
+        // ]);
     }
 
     public function updatedDiscountType($value, $name)
@@ -172,7 +203,7 @@ class Checkout extends Component
         $this->updateQuantity($row_id, $product_id);
     }
 
-    public function setProductDiscount($row_id, $product_id)
+ public function setProductDiscount($row_id, $product_id)
     {
         $cart_item = Cart::instance($this->cart_instance)->get($row_id);
 

@@ -16,14 +16,14 @@
                             <div class="position-relative">
                                 <img height="200" src="{{ $product->getFirstMediaUrl('images') }}"
                                     class="card-img-top" alt="Product Image">
-                                <div class="badge badge-info mb-3 position-absolute" style="left:10px;top: 10px;">Stock:
+                                <div class="badge badge-info mb-3 position-absolute" style="color:#000;left:10px;top: 10px;">Stock:
                                     {{ $product->product_quantity }}</div>
                             </div>
                             <div class="card-body">
                                 <div class="mb-2">
                                     <h6 style="font-size: 13px;" class="card-title mb-0">{{ $product->product_name }}
                                     </h6>
-                                    <span class="badge badge-success">
+                                    <span class="badge badge-success" style="color:#000;">
                                         {{ $product->product_code }}
                                     </span>
                                 </div>

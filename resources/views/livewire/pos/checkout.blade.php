@@ -6,13 +6,13 @@
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <div class="alert-body">
                             <span>{{ session('message') }}</span>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">×</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>
                 @endif
-
+            
                 <div class="form-group">
                     <label for="customer_id">Pelanggan<span class="text-danger">*</span></label>
                     <div class="input-group">
@@ -21,7 +21,7 @@
                                 <i class="bi bi-person-plus"></i>
                             </a>
                         </div>
-                        <select wire:model.live="customer_id" id="customer_id" class="form-control">
+                        <select wire:model="customer_id" id="customer_id" class="form-control">
                             <option value="" selected>Pilih Pelanggan</option>
                             @foreach ($customers as $customer)
                                 <option value="{{ $customer->id }}">{{ $customer->customer_name }}</option>
@@ -61,7 +61,8 @@
                                         </td>
                                         
                                         <td class="align-middle text-center">
-                                            <a href="#"
+                                            
+                                            <a href="javascript:void(0);" wire:key="remove-item-{{ $cart_item->rowId }}"
                                                 wire:click.prevent="removeItem('{{ $cart_item->rowId }}')">
                                                 <i class="bi bi-x-circle font-2xl text-danger"></i>
                                             </a>
