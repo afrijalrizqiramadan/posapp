@@ -228,7 +228,7 @@
                             aria-expanded="false" aria-controls="sales">
                             <i class="ri-list-settings-line"></i> <span data-key="t-dashboards">Penjualan</span>
                         </a>
-                        @can('create_sales')
+                        <!-- @can('create_sales')
                             <div class="collapse menu-dropdown" id="sales">
                                 <ul class="nav nav-sm flex-column">
                                     <li class="nav-item">
@@ -238,7 +238,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        @endcan
+                        @endcan -->
                         <div class="collapse menu-dropdown" id="sales">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">

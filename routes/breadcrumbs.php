@@ -137,7 +137,7 @@ Breadcrumbs::for('app.pos.index', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('sales.index', function (BreadcrumbTrail $trail) {
     $trail->push('POS', route('app.pos.index'));
 });
-Breadcrumbs::for('sales.create', function (BreadcrumbTrail $trail) {
-    $trail->parent('sales.index');
-    $trail->push('Buat Penjualan', route('sales.create'));
-});
+// Breadcrumbs::for('sales.create', function (BreadcrumbTrail $trail) {
+//     $trail->parent('sales.index');
+//     $trail->push('Buat Penjualan', route('sales.create'));
+// });
